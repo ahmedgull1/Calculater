@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./index.css">
+    <title>calculater</title>
+</head>
+
+<body>
+    <h1 class="text-center mt-10 underline text-white font-bold text-2xl ">Welcom to my calculater</h1>
+    <div class="container bg-black  px-4 mx-auto py-8 rounded-xl  mt-3 border border-white">
+        <div class="input w-full  ">
+
+            <input class=" bg-gray-400 w-full px-2 py-1 border border-black rounded-md" type="text">
+        </div>
+        <div class="  text-center  py-1 m-1">
+            <button
+                class=" rounded-full  ml-4  bg-gray-400 buuton border border-black w-10  h-10  rounded-md uppercase">ac</button>
+            <button
+                class=" rounded-full  ml-4  bg-gray-400 buuton border border-black w-10 h-10 rounded-md uppercase">del</button>
+            <button class=" rounded-full ml-4   bg-gray-400 buuton border border-black   w-10  h-10  rounded-md">%</button>
+            <button class=" rounded-full ml-4   bg-gray-400 buuton border border-black   w-10  h-10  rounded-md">/</button>
+        </div>
+        <div class="text-center  py-1 m-1 font-sm ">
+            <button
+                class=" rounded-full  ml-4  bg-gray-400 button border border-black    w-10  h-10  rounded-md">7</button>
+            <button
+                class=" rounded-full  ml-4  bg-gray-400 button border border-black    w-10  h-10  rounded-md">8</button>
+            <button
+                class=" rounded-full ml-4   bg-gray-400 button border border-black    w-10  h-10  rounded-md">9</button>
+            <button
+                class=" rounded-full  ml-4  bg-yellow-400 button border border-black  w-10  h-10  rounded-md">*</button>
+        </div>
+        <div class="text-center py-1 font-sm">
+            <button
+                class=" rounded-full  ml-4 bg-gray-400 button border border-black   w-10  h-10  rounded-md">4</button>
+            <button
+                class=" rounded-full  ml-4 bg-gray-400 button border border-black   w-10  h-10  rounded-md">5</button>
+            <button
+                class=" rounded-full  ml-4 bg-gray-400 button border border-black   w-10  h-10  rounded-md">6</button>
+            <button
+                class=" rounded-full  ml-4 bg-yellow-400 button border border-black w-10  h-10  rounded-md">-</button>
+        </div>
+        <div class="text-center py-1 font-sm">
+            <button class=" rounded-full ml-4  bg-gray-400 button border border-black    w-10  h-10  rounded-md">1</button>
+            <button class=" rounded-full ml-4  bg-gray-400 button border border-black    w-10  h-10  rounded-md">2</button>
+            <button class=" rounded-full ml-4  bg-gray-400 button border border-black    w-10  h-10  rounded-md">3</button>
+            <button class=" rounded-full ml-4  bg-yellow-400 button border border-black  w-10  h-10  rounded-md">+</button>
+        </div>
+        <div class=" text-center py-1 font-sm">
+            <button
+                class=" rounded-full ml-5  bg-gray-400 button border border-black center-none w-24  h-10  rounded-md">0</button>
+            <button
+                class=" rounded-full ml-4  bg-gray-400 button border border-black   w-10  h-10  rounded-md">.</button>
+            <button
+                class=" rounded-full  ml-5 bg-yellow-400 button border border-black w-10  h-10  rounded-md">=</button>
+        </div>
+
+    </div>
+
+</body>
+<script>
+
+    let buttons = document.querySelectorAll('button')
+    let input = document.querySelector('input')
+
+
+buttons.forEach((btn)=>{
+    btn.addEventListener('click',(ele)=>{
+        const value = ele.target.innerText;
+        if(value ==='='){
+            input.value = eval(input.value)
+        }
+        else if(value=='AC'){
+            input.value="";
+        }
+        else if(value=='DEL'){
+            input.value = input.value.slice(0,-1)
+        }
+        else{
+            input.value += value; 
+        }
+    })
+})
+</script>
+
+</html>
